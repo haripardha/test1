@@ -18,4 +18,7 @@ node {
       stage('success') {
        println "hello this is testing success"
     }
+          stage('nofail') {
+       println "hello this is testing nofail good"
+    }
 }
