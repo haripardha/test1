@@ -1,0 +1,18 @@
+- hosts: pardha
+  tasks:
+  - name: Ansible copy file to remote server
+    copy:
+      src: ~/sample.txt
+      dest: /tmp
+    register: satish 
+  - debug : 
+      var: satish 
+- hosts: pardha
+  tasks:
+  - name: Ansible copy file to remote server
+    copy:
+      src: ~/sample.txt
+      dest: /tmp
+    when:
+      satish.size !=  "0"
+

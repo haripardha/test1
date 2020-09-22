@@ -1,0 +1,2 @@
+ansible_user: pardha 
+ansible_connection: ssh 

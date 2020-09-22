@@ -1,0 +1,19 @@
+- name: Download Tomcat8 from tomcat.apache.org
+  file:
+     path: "{{ target_path }}"
+     state: directory
+     mode: 0755
+#  become: yes
+#  become_method: sudo
+#  become_user: pardha
+#  become_password: amma@143
+
+- name: Download Tomcat using get_url
+#  become: yes
+#  become_method: sudo
+#  become_user: pardha
+#  become_password: amma@143
+  get_url:
+       url: https://apachemirror.sg.wuchna.com/tomcat/tomcat-8/v8.5.57/bin/apache-tomcat-8.5.57.tar.gz
+       dest: "{{ target_path }}"
+       mode: 0755

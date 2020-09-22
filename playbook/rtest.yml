@@ -1,0 +1,4 @@
+- hosts: pardha
+  tasks:
+  roles:
+   - download_nexus

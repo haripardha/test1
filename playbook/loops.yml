@@ -1,0 +1,19 @@
+- hosts: pardha
+  gather_facts: yes
+  vars:
+    path: /tmp
+    source: /home/pardha
+  tasks:
+  - name: check the path is being exported
+    #shell: ls -1{{ source}}/*.txt; mv {{ item }} {{ item}}_x
+    shell: ls -1 {{ source}}/*.txt
+    register: loop
+  - debug:
+     var: loop
+  - name: loops working
+    shell: mv {{ item }} {{ item}}_x
+    with_items:
+      - "{{ loop.stdout_lines }}"
+
+    
+     

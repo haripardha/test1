@@ -1,0 +1,27 @@
+- hosts: pardha
+  gather_facts: yes
+  vars:
+    path: /tmp
+    source: /home/pardha
+  vars_files:
+   - vars/variable.yml
+  tasks:
+  - name: check the path is being exported
+    command: ls -lrt {{ path }}
+  - name: check another path is being exported
+    command: ls -lrt {{ source }}/
+    register: status
+  - debug: 
+     var: status
+  - name: test the var file
+    include_vars: vars/variable.yml
+  - debug: 
+       msg: "the output of {{ raj }}"  
+  
+  - name: checking the set facts
+    set_fact:
+      test_host: "{{ hostvars[groups['pardha'][0]] }}"
+  - debug:
+      msg: "{{ test_host }}"
+    
+    
