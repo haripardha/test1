@@ -15,4 +15,7 @@ node {
     stage('Results') {
        println "hello this is testing output"
     }
+      stage('success') {
+       println "hello this is testing success"
+    }
 }
